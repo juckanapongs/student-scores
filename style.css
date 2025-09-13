@@ -1,0 +1,314 @@
+/* รีเซ็ตค่าเริ่มต้น */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  padding: 40px;
+  animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+h2 {
+  text-align: center;
+  color: #2d3748;
+  margin-bottom: 40px;
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+/* ส่วนค้นหา */
+.search-section {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 30px;
+  background: linear-gradient(45deg, #f093fb 0%, #f5576c 100%);
+  border-radius: 15px;
+  color: white;
+}
+
+.search-section h3 {
+  margin-bottom: 20px;
+  font-size: 1.3rem;
+}
+
+.input-group {
+  display: flex;
+  gap: 15px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+#studentId {
+  flex: 1;
+  padding: 15px 20px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  outline: none;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+button {
+  padding: 15px 30px;
+  background: #2d3748;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.hidden { display: none; }
+
+/* ส่วนแสดงผล */
+#result { animation: slideIn 0.6s ease-out; }
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.student-info {
+  background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);
+  border-radius: 15px;
+  padding: 25px;
+  margin-bottom: 30px;
+  color: white;
+}
+
+.student-info h3 {
+  margin-bottom: 15px;
+  font-size: 1.5rem;
+}
+
+.student-info p {
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+.scores-section {
+  margin-bottom: 30px;
+}
+
+.scores-section h3 {
+  color: #2d3748;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  border-bottom: 3px solid #667eea;
+  padding-bottom: 10px;
+}
+
+/* ==== ตารางกลางภาค ==== */
+#midtermTable,
+#finalTable {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+#midtermTable thead {
+  background: linear-gradient(45deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+}
+
+#finalTable thead {
+  background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+#midtermTable th, #midtermTable td,
+#finalTable th, #finalTable td {
+  padding: 15px 20px;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+#midtermTable th, #finalTable th {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+#midtermTable tbody tr, #finalTable tbody tr {
+  transition: all 0.3s ease;
+}
+
+#midtermTable tbody tr:hover,
+#finalTable tbody tr:hover {
+  background-color: #f7fafc;
+  transform: scale(1.02);
+}
+
+#midtermTable tbody tr:nth-child(even),
+#finalTable tbody tr:nth-child(even) {
+  background-color: #f8f9fa;
+}
+
+/* คะแนน */
+.score-value {
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 8px;
+  color: white;
+  text-align: center;
+  min-width: 60px;
+  display: inline-block;
+}
+
+.score-excellent { background: linear-gradient(45deg, #48bb78, #38a169); }
+.score-good      { background: linear-gradient(45deg, #4299e1, #3182ce); }
+.score-average   { background: linear-gradient(45deg, #ed8936, #dd6b20); }
+.score-poor      { background: linear-gradient(45deg, #e53e3e, #c53030); }
+
+/* สรุปผล */
+.summary-section {
+  background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+  border-radius: 15px;
+  padding: 25px;
+  text-align: center;
+}
+
+.summary-section h3 {
+  color: #2d3748;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+}
+
+.summary-item {
+  display: inline-block;
+  margin: 10px 20px;
+  padding: 15px 25px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.summary-item strong {
+  color: #2d3748;
+  display: block;
+  margin-bottom: 5px;
+  font-size: 1.1rem;
+}
+
+.total-score {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #667eea;
+}
+
+.final-grade {
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 8px;
+  color: white;
+}
+
+.grade-a { background: linear-gradient(45deg, #48bb78, #38a169); }
+.grade-b { background: linear-gradient(45deg, #4299e1, #3182ce); }
+.grade-c { background: linear-gradient(45deg, #ed8936, #dd6b20); }
+.grade-d { background: linear-gradient(45deg, #e53e3e, #c53030); }
+
+/* Error และ Loading */
+.loading {
+  text-align: center;
+  padding: 40px;
+  color: #667eea;
+  font-size: 1.2rem;
+}
+
+.error {
+  background: #fed7d7;
+  color: #c53030;
+  padding: 20px;
+  border-radius: 12px;
+  margin-top: 20px;
+  text-align: center;
+  border: 2px solid #feb2b2;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .container { padding: 20px; }
+  .input-group { flex-direction: column; }
+  #midtermTable, #finalTable { font-size: 14px; }
+  #midtermTable th, #midtermTable td,
+  #finalTable th, #finalTable td { padding: 10px; }
+  .summary-item { display: block; margin: 10px 0; }
+}
+
+/* Animation */
+.fadeIn  { animation: fadeIn 0.5s forwards; }
+.fadeOut { animation: fadeOut 0.5s forwards; }
+.shake   { animation: shake 0.5s; }
+
+@keyframes fadeOut { from {opacity:1;} to {opacity:0;} }
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}
+
+/* Overlay */
+.overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+.overlay.hidden { display: none; }
+
+.overlay-content {
+  text-align: center;
+  color: #fff;
+  font-size: 1.2rem;
+  animation: fadeIn 0.5s ease;
+}
+
+/* Spinner */
+.spinner {
+  border: 6px solid rgba(255,255,255,0.3);
+  border-top: 6px solid #fff;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 15px;
+  animation: spin 1s linear infinite;
+}
+@keyframes spin { 0% { transform: rotate(0deg);} 100% { transform: rotate(360deg);} }

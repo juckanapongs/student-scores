@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ระบบตรวจสอบผลการเรียน</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>🎓 ระบบตรวจสอบผลการเรียน</h2>
+    
+    <!-- ช่องค้นหา -->
+    <div class="search-section">
+      <h3>กรอกรหัสนักเรียนเพื่อตรวจสอบคะแนน</h3>
+      <div class="input-group">
+        <input type="text" id="studentId" placeholder="เช่น 03968" maxlength="10">
+        <button onclick="fetchScore()">🔍 ตรวจสอบ</button>
+      </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="overlay hidden">
+      <div class="overlay-content">
+        <div class="spinner"></div>
+        <p>กำลังตรวจสอบข้อมูล... ⏳</p>
+      </div>
+    </div>
+
+    <!-- Error -->
+    <div id="error" class="error hidden">
+      <strong>ไม่พบข้อมูล</strong><br>
+      กรุณาตรวจสอบรหัสนักเรียนและลองใหม่อีกครั้ง
+    </div>
+
+    <!-- Result -->
+    <div id="result" class="hidden">
+
+      <!-- ข้อมูลนักเรียน -->
+      <div class="student-info card">
+        <h3>📋 ข้อมูลนักเรียน</h3>
+        <p><strong>เลขที่:</strong> <span id="number"></span></p>
+        <p><strong>รหัสนักเรียน:</strong> <span id="displayStudentId"></span></p>
+        <p><strong>ชื่อ-นามสกุล:</strong> <span id="fullName"></span></p>
+        <p><strong>ชั้น/ห้อง:</strong> <span id="classroom"></span></p>
+      </div>
+
+      <!-- คะแนนกลางภาค -->
+      <div class="scores-section card" id="midtermSection">
+        <h3>📘 คะแนนกลางภาค</h3>
+        <table id="midtermTable">
+          <thead>
+            <tr>
+              <th style="width: 70%;">รายการประเมิน</th>
+              <th style="width: 30%; text-align: center;">คะแนน</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <!-- คะแนนปลายภาค -->
+      <div class="scores-section card" id="finalSection">
+        <h3>📕 คะแนนปลายภาค</h3>
+        <table id="finalTable">
+          <thead>
+            <tr>
+              <th style="width: 70%;">รายการประเมิน</th>
+              <th style="width: 30%; text-align: center;">คะแนน</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <!-- สรุปผล -->
+      <div class="summary-section card">
+        <h3>📈 สรุปผลการเรียน</h3>
+        <div class="summary-item">
+          <strong>คะแนนรวมทั้งหมด</strong>
+          <div id="total" class="total-score">-</div>
+        </div>
+        <div class="summary-item">
+          <strong>ผลการเรียน</strong>
+          <div id="grade" class="final-grade">-</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
