@@ -1,4 +1,4 @@
-const API_URL = "https://script.google.com/macros/s/AKfycbxYtZOiZeKpsHh35kAmtjnVKo-g0cGnoJ0Oazy4atnz4VWmBKPkPHfzIP_hmAXlZe4H9w/exec";
+const API_URL = "https://script.google.com/macros/s/AKfycbygHDp_cD4Fqf-Ke_bPxSxSXpIvOBSFOXBOC2e4gpoe57cLMEyHpoXO0lAheB5-nsKLzQ/exec";
 
 async function fetchScore() {
   const studentId = document.getElementById("studentId").value.trim();
